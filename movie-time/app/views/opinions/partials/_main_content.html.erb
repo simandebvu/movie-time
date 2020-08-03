@@ -1,0 +1,29 @@
+<main role="main" class="col-lg-6 ml-sm-auto col-lg-7 px-md-4 pt-3">
+
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#tweets">Tweets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#photos">Photos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#videos">Videos</a>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div id="tweets" class="container tab-pane active"><br>
+        <%= render 'opinions/partials/feed' %>
+      </div>
+      <div id="photos" class="container tab-pane fade"><br>
+        <h3>Photos</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div id="videos" class="container tab-pane fade"><br>
+        <h3>Videos</h3>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+      </div>
+    </div>
+</main>

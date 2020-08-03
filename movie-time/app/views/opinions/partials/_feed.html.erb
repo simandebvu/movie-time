@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+<div class="media-content">
+    <%= render 'opinions/partials/form' %>
+</div>
+<% end %>
+
+<div class="card mt-3">
+    <ul class="list-group list-group-flush">
+        <%= render @opinions %>
+    </ul>
+</div>
