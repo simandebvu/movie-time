@@ -8,6 +8,8 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
@@ -23,48 +25,27 @@
     <p class="alert"><%= alert %></p>
   </div>
   <% end %>
-  <div class="navbar is-info">
-    <div class="navbar-brand">
-      <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is-5">
-        Movie Time
-      </h1>
-      <% end %>
-      <div class="navbar-burger burger" data-target="mainNav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
 
-    <div id="mainNav" class="navbar-menu">
-      <div class="navbar-end">
-        <div class="field is-grouped">
-          <p class="control">
-            <%= link_to 'New movie', new_opinion_path, class: "button is-info is-inverted" %>
-          </p>
-          <% if user_signed_in? %>
-          <p class="control">
-            <%= link_to current_user.username, edit_user_registration_path, class: "button is-info" %>
-          </p>
-          <p>
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
-          </p>
-        <% else %>
-          <p class="control">
-            <%= link_to 'Sign Up', new_user_registration_path, class: "button is-info" %>
-          </p>
-          <p class="control">
-            <%= link_to 'Sign In', new_user_session_path, class: "button is-info" %>
-          </p>
-        <% end %>
-
-        </div>
-      </div>
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <%= link_to "Movie Time", root_path, class: "navbar-brand col-md-3 col-lg-2 mr-0 px-3" %>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%= link_to 'New movie', new_opinion_path, class: "nav-link ml-auto text-white" %>
+    <% if user_signed_in? %>
+    <%= link_to current_user.username, edit_user_registration_path, class: "nav-link text-white" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+    <% else %>
+    <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link text-white" %>
+    <%= link_to 'Sign In', new_user_session_path, class: "nav-link text-white" %>
+    <% end %>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <%= yield %>
     </div>
   </div>
-
-  <%= yield %>
 </body>
 
 </html>

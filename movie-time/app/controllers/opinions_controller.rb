@@ -1,6 +1,7 @@
 class OpinionsController < ApplicationController
   before_action :set_opinion, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!
 
   # GET /opinions
   # GET /opinions.json
