@@ -23,4 +23,12 @@ class User < ApplicationRecord
     def unfollow(usr)
       followings.where({ followed_id: usr.id }).destroy_all
     end
+
+    def friends_and_own_opinions(usr)
+      Opinion.where('user_id in (?)', (
+        usr.followers_ids + usr.followings_ids + [usr.id]
+      ).uniq)
+        .includes(:user)
+        .order(created_at: :desc)
+    end
 end
