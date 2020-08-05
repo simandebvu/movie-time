@@ -10,6 +10,10 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new
   end
 
+  def show_users_posts
+    @opinions = Opinion.where(user_id: current_user.id)
+  end
+
   # GET /opinions/1
   # GET /opinions/1.json
   def show

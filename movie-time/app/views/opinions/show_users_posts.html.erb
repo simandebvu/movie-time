@@ -1,6 +1,5 @@
 <%= render 'opinions/partials/sidebar_menu' %>
 <%= javascript_pack_tag 'statistics_js' %>
 <div class="container col-lg-8 mx-auto mt-4">
-    STATISTICS CHARTS
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<%= render @opinions %>
 </div>

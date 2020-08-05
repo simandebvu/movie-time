@@ -1,0 +1,8 @@
+<%= render 'opinions/partials/sidebar_menu' %>
+<%= javascript_pack_tag 'statistics_js' %>
+<div class="container col-lg-8 mx-auto mt-4">
+<h5 class="card-title"><%= @user.username %></h5>
+<p class="card-text"><%= @user.email %></p>
+<% @user_opinions.each do |o| %>
+<%= o.text %> <br>
+<% end %>

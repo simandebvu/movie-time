@@ -2,7 +2,7 @@
     <div class="row">
         <img class="rounded col-sm-1" src="https://via.placeholder.com/20x20.png?text=Sample+Thumbnail" alt="">
         <div class="d-flex flex-column col-sm-8">
-            <strong><%= opinion.user.fullname %></strong>
+            <%= link_to opinion.user.fullname, user_path(opinion.user), class: 'text-dark font-weight-bolder text-decoration-none' %>
             <%= link_to "@"+opinion.user.username, opinions_path, class: 'text-dark' %>
             <%= opinion.text %>
         </div>

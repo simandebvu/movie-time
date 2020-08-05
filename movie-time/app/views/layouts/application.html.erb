@@ -12,16 +12,22 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
+
 <body class="main-content ">
   <% if flash[:notice] %>
-  <div class="notification is-primary global-notification">
-    <p class="notice"><%= notice %></p>
+  
+  <div class="alert alert-success alert-dismissible fade show mb-0 text-center" role="alert"><%= notice %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <% end %>
 
   <% if flash[:alert] %>
-  <div class="notification is-alert global-notification">
-    <p class="alert"><%= alert %></p>
+  <div class="alert alert-danger alert-dismissible fade show mb-0 text-center" role="alert"><%= alert %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <% end %>
 
@@ -53,6 +59,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>
