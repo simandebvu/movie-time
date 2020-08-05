@@ -6,10 +6,9 @@ class OpinionsController < ApplicationController
   # GET /opinions
   # GET /opinions.json
   def index
-    #@opinions = Opinion.all.order("created_at DESC")
-    ids = current_user.followings.pluck(:followed_id) << current_user.id
-    @opinions = Opinion.where(user_id: ids)
     @opinion = Opinion.new
+    ids = current_user.followings.pluck(:followed_id) << current_user.id
+    @opinions = Opinion.where(user_id: ids).order({created_at: :desc})
   end
   
 
@@ -25,7 +24,6 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/new
   def new
-    @opinion = current_user.opinions.build
   end
 
   # GET /opinions/1/edit
