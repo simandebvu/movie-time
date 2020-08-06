@@ -22,7 +22,6 @@ class OpinionsController < ApplicationController
   # GET /opinions/1
   # GET /opinions/1.json
   def show
-
   end
 
   # GET /opinions/new
@@ -41,10 +40,8 @@ class OpinionsController < ApplicationController
     respond_to do |format|
       if @opinion.save
         format.html { redirect_to root_path, notice: 'Opinion was successfully created.' }
-        format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,10 +52,8 @@ class OpinionsController < ApplicationController
     respond_to do |format|
       if @opinion.update(opinion_params)
         format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @opinion }
       else
         format.html { render :edit }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,7 +64,6 @@ class OpinionsController < ApplicationController
     @opinion.destroy
     respond_to do |format|
       format.html { redirect_to opinions_url, notice: 'Opinion was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
