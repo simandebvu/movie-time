@@ -1,13 +1,13 @@
 <div class="panel-block">
     <article class="media">
         <div class="media-left">
-                <img src= "<%= asset_url(suggestion.photo_url) %>" alt="" class = "img-thumbnail col-xs-3 col-sm-1" srcset="" style="max-height: 100px; max-width: 100px;">
+            <img src="<%= asset_url(suggestion.photo_url) %>" alt="" class="rounded-circle col-xs-3 col-sm-1" srcset=""
+                style="max-height: 100px; max-width: 100px;">
         </div>
         <div class="media-content pl-2">
             <div class="content">
                 <p>
-                    <%= suggestion.fullname %> 
-                    +
+                    <%= link_to suggestion.fullname, user_path(suggestion), class: 'text-dark font-weight-bolder text-decoration-none' %>
                 </p>
             </div>
         </div>
