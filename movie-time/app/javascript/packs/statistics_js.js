@@ -27,4 +27,9 @@ window.onload = function () {
     });
     chart.render();
     
-    }
+}
+
+image.onload = function() {
+    ctx.drawImage(image, 0, 0);
+  };
+image.src = imgSrc[0];

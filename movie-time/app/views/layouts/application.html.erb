@@ -7,7 +7,6 @@
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
   <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
 
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,31 +14,16 @@
 
 
 <body class="main-content ">
-<%= toastr_flash_messages %>
+  <%= toastr_flash_messages %>
 
   <nav class="user-nav navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
     <%= link_to "Movie Time", root_path, class: "bg-dark navbar-brand col-md-3 col-lg-2 mr-0 px-3" %>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
-      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <span class="material-icons">
-      highlight
-      </span>
-      <%= link_to 'New movie', new_opinion_path, class: "nav-link ml-auto text-white" %>
-      <% if user_signed_in? %>
-      <%= link_to current_user.username, edit_user_registration_path, class: "nav-link text-white" %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
-      <% else %>
-      <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link text-white" %>
-      <%= link_to 'Sign In', new_user_session_path, class: "nav-link text-white" %>
-      <% end %>
+    <span class="material-icons text-white ml-2">
+      important_devices
+    </span>
+    <%= login_status_btns %>
   </nav>
-  <div class="container-fluid">
-    <div class="row">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

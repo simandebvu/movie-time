@@ -1,28 +1,30 @@
-<div class="jumbotron mx-auto col-md-8">
-	<h2 class="display-4">Log in</h2>
-	<hr class="my-4">
-	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container-fluid">
+	<div class="jumbotron mx-auto col-md-4 mt-5">
+		<h2 class="display-4">Log in</h2>
+		<hr class="my-4">
+		<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-	<div class="form-group">
-		<div>
-			<%= f.input :email, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+		<div class="form-group">
+			<div>
+				<%= f.input :email, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group">
-		<div>
-			<%= f.input :password, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+		<div class="form-group">
+			<div>
+				<%= f.input :password, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+			</div>
 		</div>
-	</div>
 
-	<div class="form-group form-check">
-		<div class = "">
-			<%= f.input :remember_me, wrapper: false, input_html: { class: "form-check-input"}, as: :boolean if devise_mapping.rememberable? %>
+		<div class="form-group form-check">
+			<div class="">
+				<%= f.input :remember_me, wrapper: false, input_html: { class: "form-check-input"}, as: :boolean if devise_mapping.rememberable? %>
+			</div>
 		</div>
-	</div>
 
-	<%= f.button :submit, "Log in", class:"btn btn-primary" %>
-	<% end %>
-	<br />
-	<%= render "devise/shared/links" %>
+		<%= f.button :submit, "Log in", class:"btn btn-primary" %>
+		<% end %>
+		<br />
+		<%= render "devise/shared/links" %>
+	</div>
 </div>

@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  before_destroy :destroy_relations
+  mount_uploader :photo, PhotoUploader
+  mount_uploader :cover_image, CoverImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +10,13 @@ class User < ApplicationRecord
   has_many :followings, foreign_key: :follower_id
   has_many :followers, class_name: :Following, foreign_key: :followed_id
   scope :all_except, ->(user) { where.not(id: user) }
+
+  validates :photo, presence: true
+  validates_integrity_of  :photo
+  validates_processing_of :photo
+  validates :cover_image, presence: true
+  validates_integrity_of  :cover_image
+  validates_processing_of :cover_image
 
     def own_opinions(usr)
       Opinion.where(user_id: usr)
@@ -30,5 +40,11 @@ class User < ApplicationRecord
       ).uniq)
         .includes(:user)
         .order(created_at: :desc)
+    end
+
+    def destroy_relations
+      followers.destroy_all
+      followings.destroy_all
+      opinions.destroy_all
     end
 end

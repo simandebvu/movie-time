@@ -9,6 +9,9 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new
     ids = current_user.followings.pluck(:followed_id) << current_user.id
     @opinions = Opinion.where(user_id: ids).order({created_at: :desc})
+    @suggestions = User.where('id NOT IN (?)', current_user.followings.map(&:followed_id) + [current_user.id])
+    .limit(5)
+    .order(created_at: :desc)
   end
   
 
