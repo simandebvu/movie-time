@@ -9,27 +9,13 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
   <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 
 <body class="main-content ">
-  <% if flash[:notice] %>
-  
-  <div class="alert alert-success alert-dismissible fade show mb-0 text-center" role="alert"><%= notice %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <% end %>
-
-  <% if flash[:alert] %>
-  <div class="alert alert-danger alert-dismissible fade show mb-0 text-center" role="alert"><%= alert %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <% end %>
+<%= toastr_flash_messages %>
 
   <nav class="user-nav navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
     <%= link_to "Movie Time", root_path, class: "bg-dark navbar-brand col-md-3 col-lg-2 mr-0 px-3" %>
