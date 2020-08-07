@@ -36,4 +36,4 @@ yarn-debug.log*
 .yarn-integrity
 config/application.yml
 /config/application.yml
-movie-time/public/uploads/tmp/
+/movie-time/public/uploads/tmp/
