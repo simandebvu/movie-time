@@ -1,57 +1,91 @@
-# Project Name
+# Movie Time
 
-> One paragraph statement about the project.
 
-![screenshot](./app_screenshot.png)
+<br />
+<p align="center">
+  <a href="https://github.com/simandebvu/movie-time/">
+    <img src="rails-image.jpg" alt="Logo" width="80" height="80">
+  </a>
 
-Additional description about the project and its features.
+  <h3 align="center">Movie Time</h3>
+
+  <p align="center">
+    This project consists of building a twitter like clone.
+    <br />
+    <a href="https://github.com/simandebvu/movie-time/"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/simandebvu/movie-time/issues/">Report Bug</a>
+    ·
+    <a href="https://github.com/simandebvu/movie-time/">Request Feature</a>
+  </p>
+</p>
+
+> A redesign of Twitter Converted to be a Movie Themed Twitter. Users can post opinions on movies, follow other users and see their opinions. Feel free to join the couch potates of movie time!
+
+![screenshot](./app-screenshot.gif)
+
+This is the MVP version of the product. Based off on the design by [Gregoire Vella](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details).
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- Ruby and Ruby On Rails
+- Simple Form
+- Devise
+- Bootstrap
+- PostgreSQL
+- VSCode
+- Rubocop 
+- Sticker
+- Github Actions
 
 ## Live Demo
 
 [Live Demo Link](https://livedemo.com)
 
 
-## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+<!-- INSTALLATION -->
+## Usage
 
+To have this app on your pc, you need to:
+* have Ruby & Ruby on Rails installed in your computer
+* [download](https://github.com/simandebvu/movie-time/development.zip) or clone this repo:
+  - Clone with SSH:
+  ```
+    git@github.com:simandebvu/movie-time.git
+  ```
+  - Clone with HTTPS
+  ```
+    https://github.com/simandebvu/movie-time.git
+  ```
+* and open the terminal inside the repo and run the bundler
+  - ```$ bundler install --without production```
+* then, run rails db:migrate. This creates the database with the corresponding tables, columns and associations
+  - ```$ rails db:migrate```
+* then, run rails s. This will start the server at localhost `http://127.0.0.1:3000/`
+  - ```$ rails s```
+* and finally, you can test it in the console by running
+  - ```$ rails console --sandbox```
+  
+  ## IMPORTANT
 
-To get a local copy up and running follow these simple example steps.
+** I used the Figaro gem to store credentials for use with POSTGRES. Therefore, we used SECRET KEYS stored in environment variables on our development and production servers.**
 
-### Prerequisites
+- So if you have postgres credentials create a file an application.yml file inside config/ and put this your credentials in it like showing bellow:
 
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+```ruby
+DB_USERNAME: your_postgres_username
+DB_PASSWORD: your_postgres_password
+```
 
 ## Authors
 
-👤 **Author1**
+👤 **Shingirayi Mandebvu**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
-
-👤 **Author2**
-
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@simandebvu](https://github.com/simandebvu)
+- Twitter: [@simandebvu](https://twitter.com/simandebvu)
+- Linkedin: [linkedin](https://linkedin.com/in/simandebvu)
 
 ## 🤝 Contributing
 
@@ -65,9 +99,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
+- Gregoire Vella
+
 
 ## 📝 License
 
