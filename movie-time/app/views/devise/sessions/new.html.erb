@@ -5,21 +5,15 @@
 		<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 		<div class="form-group">
-			<div>
 				<%= f.input :email, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
-			</div>
 		</div>
 
 		<div class="form-group">
-			<div>
 				<%= f.input :password, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
-			</div>
 		</div>
 
 		<div class="form-group form-check">
-			<div class="">
 				<%= f.input :remember_me, wrapper: false, input_html: { class: "form-check-input"}, as: :boolean if devise_mapping.rememberable? %>
-			</div>
 		</div>
 
 		<%= f.button :submit, "Log in", class:"btn btn-primary" %>
