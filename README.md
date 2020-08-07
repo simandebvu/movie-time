@@ -43,6 +43,10 @@ This is the MVP version of the product. Based off on the design by [Gregoire Vel
 
 [Live Demo Link](https://movie-time-zim.herokuapp.com/)
 
+## Video Presentation
+
+[Video Link](https://www.loom.com/share/6750547f630a4299b89be24c932daf8a)
+
 
 
 <!-- INSTALLATION -->
