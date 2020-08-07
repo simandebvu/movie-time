@@ -12,39 +12,39 @@ class User < ApplicationRecord
   scope :all_except, ->(user) { where.not(id: user) }
 
   validates :photo, presence: true
-  validates_integrity_of  :photo
+  validates_integrity_of :photo
   validates_processing_of :photo
   validates :cover_image, presence: true
-  validates_integrity_of  :cover_image
+  validates_integrity_of :cover_image
   validates_processing_of :cover_image
 
-    def own_opinions(usr)
-      Opinion.where(user_id: usr)
-    end
+  def own_opinions(usr)
+    Opinion.where(user_id: usr)
+  end
 
-    def follows?(usr)
-      followings.where( { followed_id: usr.id} ).exists?
-    end
+  def follows?(usr)
+    followings.where({ followed_id: usr.id }).exists?
+  end
 
-    def follow(usr)
-      followings.create({ followed_id: usr.id}) unless follows?(usr)
-    end 
+  def follow(usr)
+    followings.create({ followed_id: usr.id }) unless follows?(usr)
+  end
 
-    def unfollow(usr)
-      followings.where({ followed_id: usr.id }).destroy_all
-    end
+  def unfollow(usr)
+    followings.where({ followed_id: usr.id }).destroy_all
+  end
 
-    def friends_and_own_opinions(usr)
-      Opinion.where('user_id in (?)', (
-        usr.followers_ids + usr.followings_ids + [usr.id]
-      ).uniq)
-        .includes(:user)
-        .order(created_at: :desc)
-    end
+  def friends_and_own_opinions(usr)
+    Opinion.where('user_id in (?)', (
+      usr.followers_ids + usr.followings_ids + [usr.id]
+    ).uniq)
+      .includes(:user)
+      .order(created_at: :desc)
+  end
 
-    def destroy_relations
-      followers.destroy_all
-      followings.destroy_all
-      opinions.destroy_all
-    end
+  def destroy_relations
+    followers.destroy_all
+    followings.destroy_all
+    opinions.destroy_all
+  end
 end

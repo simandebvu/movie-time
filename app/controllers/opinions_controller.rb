@@ -1,6 +1,6 @@
 class OpinionsController < ApplicationController
-  before_action :set_opinion, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_opinion, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[show index]
   before_action :authenticate_user!
 
   # GET /opinions
@@ -8,12 +8,11 @@ class OpinionsController < ApplicationController
   def index
     @opinion = Opinion.new
     ids = current_user.followings.pluck(:followed_id) << current_user.id
-    @opinions = Opinion.where(user_id: ids).order({created_at: :desc})
+    @opinions = Opinion.where(user_id: ids).order({ created_at: :desc })
     @suggestions = User.where('id NOT IN (?)', current_user.followings.map(&:followed_id) + [current_user.id])
-    .limit(5)
-    .order(created_at: :desc)
+      .limit(5)
+      .order(created_at: :desc)
   end
-  
 
   def show_users_posts
     @opinions = Opinion.where(user_id: current_user.id)
@@ -21,16 +20,13 @@ class OpinionsController < ApplicationController
 
   # GET /opinions/1
   # GET /opinions/1.json
-  def show
-  end
+  def show; end
 
   # GET /opinions/new
-  def new
-  end
+  def new; end
 
   # GET /opinions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /opinions
   # POST /opinions.json
@@ -68,13 +64,14 @@ class OpinionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_opinion
-      @opinion = Opinion.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def opinion_params
-      params.require(:opinion).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_opinion
+    @opinion = Opinion.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def opinion_params
+    params.require(:opinion).permit(:text)
+  end
 end
