@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :opinions
+  resources :opinions, :only =>[:create, :show]
   root to: "opinions#index"
-  get 'statistics' => 'statistics#index'
-  
+  resources :statistics, :only =>[:index]
   devise_for :users, :path_prefix => 'd', :controllers=> {registrations:'registrations'}
   get 'users/index'
   post '/users/:id/follow', to: 'users#follow', as: 'follow'

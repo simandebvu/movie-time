@@ -1,6 +1,6 @@
 <li class="list-group-item card-body" style="border: none">
     <div class="row">
-        <img class="rounded img-thumbnail col-sm-1" src="<%= asset_url(current_user.photo_url) %>" alt="">
+        <img class="rounded img-thumbnail col-sm-2" src="<%= asset_url(opinion.user.photo_url) %>" alt="opinion_image" style="max-width: 75px; max-height: 75px;">
         <div class="d-flex flex-column col-sm-8">
             <%= link_to opinion.user.fullname, user_path(opinion.user), class: 'text-dark font-weight-bolder text-decoration-none' %>
             <%= link_to "@"+opinion.user.username, opinions_path, class: 'text-dark' %>

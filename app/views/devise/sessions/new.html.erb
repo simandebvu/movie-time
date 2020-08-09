@@ -5,11 +5,11 @@
 		<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 		<div class="form-group">
-				<%= f.input :email, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+				<%= f.input :email, required: true, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
 		</div>
 
 		<div class="form-group">
-				<%= f.input :password, required: false, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
+				<%= f.input :password, required: true, input_html: { class: "form-control"}, wrapper: false, label_html: { class: "label" } %>
 		</div>
 
 		<div class="form-group form-check">

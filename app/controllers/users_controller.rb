@@ -4,19 +4,26 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = set_user
     @user_opinions = @user.own_opinions(@user)
   end
 
   def follow
-    @user = User.find(params[:id])
+    @user = set_user
     current_user.follow(@user)
     redirect_back fallback_location: root_path
   end
 
   def unfollow
-    @user = User.find(params[:id])
+    @user = set_user
     current_user.unfollow(@user)
     redirect_back fallback_location: root_path
   end
+
+  private
+
+  def set_user
+    User.find(params[:id])
+  end
+
 end

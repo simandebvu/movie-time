@@ -1,5 +1,5 @@
 <div class="card" style="width: 18rem;">
-    <img src="<%= asset_url(current_user.photo_url) %>" class="card-img-top" alt="User Image">
+    <img src="<%= asset_url(user.photo_url) %>" class="card-img-top" alt="User Image">
     <div class="card-body">
         <%= link_to user.fullname, user_path(user), class: 'text-dark font-weight-bolder text-decoration-none' %>
         <p class="card-text"><%= user.email %></p>

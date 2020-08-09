@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :followers, class_name: :Following, foreign_key: :followed_id
   scope :all_except, ->(user) { where.not(id: user) }
 
+  validates :username, presence: true, length: { maximum: 20 }
+  validates :fullname, presence: true, length: { maximum: 20 }
   validates :photo, presence: true
   validates_integrity_of :photo
   validates_processing_of :photo
@@ -39,6 +41,17 @@ class User < ApplicationRecord
       usr.followers_ids + usr.followings_ids + [usr.id]
     ).uniq)
       .includes(:user)
+      .order(created_at: :desc)
+  end
+
+  def all_opinions(usr)
+    ids = usr.followings.pluck(:followed_id) << usr.id
+    Opinion.where(user_id: ids).order({ created_at: :desc })
+  end
+
+  def all_suggestions(usr)
+    User.where('id NOT IN (?)', usr.followings.map(&:followed_id) + [usr.id])
+      .limit(5)
       .order(created_at: :desc)
   end
 

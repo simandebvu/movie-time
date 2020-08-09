@@ -4,30 +4,22 @@ class OpinionsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /opinions
-  # GET /opinions.json
   def index
     @opinion = Opinion.new
-    ids = current_user.followings.pluck(:followed_id) << current_user.id
-    @opinions = Opinion.where(user_id: ids).order({ created_at: :desc })
-    @suggestions = User.where('id NOT IN (?)', current_user.followings.map(&:followed_id) + [current_user.id])
-      .limit(5)
-      .order(created_at: :desc)
+    @opinions = current_user.all_opinions(current_user)
+    @suggestions = current_user.all_suggestions(current_user)
   end
 
   def show_users_posts
     @opinions = Opinion.where(user_id: current_user.id)
+    @user = User.includes(followers: :follower, followings: :followed).find(current_user.id)
   end
 
   # GET /opinions/1
   # GET /opinions/1.json
   def show; end
 
-  # GET /opinions/new
-  def new; end
-
-  # GET /opinions/1/edit
-  def edit; end
-
+ 
   # POST /opinions
   # POST /opinions.json
   def create
@@ -41,28 +33,7 @@ class OpinionsController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /opinions/1
-  # PATCH/PUT /opinions/1.json
-  def update
-    respond_to do |format|
-      if @opinion.update(opinion_params)
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
-
-  # DELETE /opinions/1
-  # DELETE /opinions/1.json
-  def destroy
-    @opinion.destroy
-    respond_to do |format|
-      format.html { redirect_to opinions_url, notice: 'Opinion was successfully destroyed.' }
-    end
-  end
-
+  
   private
 
   # Use callbacks to share common setup or constraints between actions.
