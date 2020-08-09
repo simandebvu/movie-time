@@ -72,7 +72,7 @@ To have this app on your pc, you need to:
 * and finally, you can test it in the console by running
   - ```$ rails console --sandbox```
   
-  ## IMPORTANT
+## IMPORTANT
 
 ** I used the Figaro gem to store credentials for use with POSTGRES. Therefore, we used SECRET KEYS stored in environment variables on our development and production servers.**
 
@@ -82,6 +82,12 @@ To have this app on your pc, you need to:
 DB_USERNAME: your_postgres_username
 DB_PASSWORD: your_postgres_password
 ```
+
+## Running tests
+
+* Get into the folder with the application `movie-time` and open the terminal.
+* Type in `rspec`. As soon as you press enter. Tests will start to run.
+
 
 ## Authors
 

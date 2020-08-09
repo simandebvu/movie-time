@@ -25,3 +25,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Safe params: Removed public `params[:attribute]`.
 - Errors showing if you submit a blank registration form.
 - Restful Routes: Allow only `opinion#create` and `opinion#show`.
+- Asset Pipeline.
