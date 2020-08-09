@@ -1,20 +1,20 @@
 <div class="panel-block mt-2">
     <article class="media">
-        <div class="media-left">
+        <div class="media-left col-sm-4">
             <img src="<%= asset_url(suggestion.photo_url) %>" alt="" class="rounded-circle col-xs-3 col-sm-1" srcset=""
                 style="max-height: 100px; max-width: 100px;">
         </div>
-        <div class="media-content pl-1">
+        <div class="media-content pl-1 col-sm-4">
             <div class="content">
-                <div class = "row">
-                <div class = "col-sm-4">
-                    <%= link_to suggestion.username, user_path(suggestion), class: 'text-small text-dark font-weight-bolder text-decoration-none' %>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <%= link_to suggestion.username, user_path(suggestion), class: 'text-small text-dark font-weight-bolder text-decoration-none' %>
                     </div>
-                                    <div class = "col-sm-4">
-                <%= follow_status_btn(suggestion) %>
-                <div>
                 </div>
             </div>
+        </div>
+        <div class="media-right col-sm-4">
+            <%= follow_status_btn(suggestion) %>
         </div>
     </article>
 </div>
