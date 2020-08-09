@@ -19,7 +19,6 @@ class OpinionsController < ApplicationController
   # GET /opinions/1.json
   def show; end
 
- 
   # POST /opinions
   # POST /opinions.json
   def create
@@ -33,7 +32,7 @@ class OpinionsController < ApplicationController
       end
     end
   end
-  
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

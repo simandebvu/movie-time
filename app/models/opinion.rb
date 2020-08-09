@@ -3,5 +3,4 @@ class Opinion < ApplicationRecord
 
   validates :text, presence: true, length: { maximum: 145 }
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
-  
 end
