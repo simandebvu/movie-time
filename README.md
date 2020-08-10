@@ -45,7 +45,7 @@ This is the MVP version of the product. Based off on the design by [Gregoire Vel
 
 ## Video Presentation
 
-[Video Link](https://www.loom.com/share/6750547f630a4299b89be24c932daf8a)
+[Video Link](https://www.loom.com/share/a64fe3d8dff84d778213c5b80195fc8f)
 
 
 
