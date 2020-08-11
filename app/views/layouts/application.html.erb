@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Movie Time</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+
+<body class="main-content ">
+  <%= toastr_flash_messages %>
+
+  <nav class="user-nav navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow">
+    <%= link_to "Movie Time", root_path, class: "bg-dark navbar-brand col-md-3 col-lg-2 mr-0 px-3" %>
+    <span class="material-icons text-white ml-2">
+      important_devices
+    </span>
+    <%= login_status_btns %>
+  </nav>
+  <%= yield %>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
