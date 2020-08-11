@@ -1,0 +1,62 @@
+<div class="container px-0">
+    <div class="row">
+        <img src="<%= asset_url(@user.photo_url) %>" alt="Profile picture" class="rounded-circle img-thumbnail mx-auto"
+            style="max-height: 50px;" />
+    </div>
+    <h4 class="text-center"><%= @user.fullname %></h4>
+    <div class="text-center col-12">@<%= @user.username %></div>
+    <table class="table table-bordered mt-1">
+        <thead>
+            <tr>
+                <th class="text-center"><%= @user.opinions.count %></th>
+                <th class="text-center"><%= @user.followings.count %></th>
+                <th class="text-center"><%= @user.followers.count %></th>
+            </tr>
+        <tbody>
+            <tr>
+                <td class="text-center">Tweets</td>
+                <td class="text-center">Following</td>
+                <td class="text-center">Followers</td>
+            </tr>
+        </tbody>
+        </thead>
+    </table>
+    <p>Followed by</p>
+    <div class="row">
+        <% @user.followers.each do |follower| %>
+        <% follower = follower.follower %>
+
+        <table class="table table-sm" style="border:none;">
+            <tbody>
+                <tr>
+                    <th class = "w-25"> <img src="<%= asset_url(follower.photo_url) %>" alt="" class="rounded-circle col-xs-3 col-sm-1"
+                            srcset="" style="max-height: 100px; max-width: 100px;"></th>
+                    <td class = "w-25"> <%= link_to follower.username, user_path(follower), class: 'text-small text-dark font-weight-bolder text-decoration-none' %>
+                    </td>
+                    <td class= "text-center w-25"><%= follow_status_btn(follower) %></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <article class="media">
+            <div class="media-left col-sm-4">
+
+            </div>
+            <div class="media-content pl-1 col-sm-4">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-sm-4">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="media-right col-sm-4">
+
+            </div>
+        </article>
+        <% end %>
+    </div>
+</div>

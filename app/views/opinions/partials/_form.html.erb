@@ -1,0 +1,10 @@
+<%= simple_form_for(@opinion) do |f| %>
+<%= f.error_notification %>
+<div class="card p-3">
+
+  <div class="form-group">
+    <%= f.input :text, label: false, input_html: {class: "form-control"}, wrapper:false, label_html: {class: "label"}, placeholder: "Lets opinionate!", autofocus: true %>
+  </div>
+  <%= f.button :submit , class: "btn btn-primary ml-auto w-25 " %>
+</div>
+<% end %>

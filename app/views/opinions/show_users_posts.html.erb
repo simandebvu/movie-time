@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+      <%= render 'opinions/partials/sidebar_menu' %>
+    </nav>
+    <main role="main" class="col-md-6 ml-sm-auto col-lg-7 px-md-4 mt-3">
+
+      <div class="no-padding mb-2">
+        <div class="row">
+          <div class="col-md-12 px-0">
+            <img src="<%= asset_url(current_user.cover_image_url) %>" alt="My Cover image" class="img-responsive col-md-12"
+              style="max-height: 250px;" />
+          </div>
+        </div>
+      </div>
+
+      <%= render @opinions %>
+    </main>
+
+    <aside class="col-md-3 col-lg-3  pt-3">
+      <%= render 'opinions/partials/profile_stats' %>
+    </aside>
+  </div>
+</div>
